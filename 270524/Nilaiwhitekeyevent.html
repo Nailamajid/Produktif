@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" http-equiv="X-UA-Compatible" 
-    name="viewport" content="IE=edge, width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Menghitung Indeks Prestasi</title>
 	<style>
 		table {
@@ -29,22 +30,22 @@
 		<tr>
 			<td>Quis</td>
 			<td>10%</td>
-			<td><input class="w-full px-2 rounded-md" min="0" max="100" type="number" name="quis" id="quis" placeholder="masukkan nilai"></td>
+			<td><input onkeyup="calculate()" class="w-full px-2 rounded-md" min="0" max="100" type="number" name="quis" id="quis" placeholder="masukkan nilai"></td>
 		</tr>
 		<tr>
 			<td>Tugas</td>
 			<td>20%</td>
-			<td><input class="w-full px-2 rounded-md" min="0" max="100" type="number" name="tugas" id="tugas" placeholder="masukkan nilai"></td>
+			<td><input onkeyup="calculate()" class="w-full px-2 rounded-md" min="0" max="100" type="number" name="tugas" id="tugas" placeholder="masukkan nilai"></td>
 		</tr>
 		<tr>
 			<td>UTS</td>
 			<td>30%</td>
-			<td><input class="w-full px-2 rounded-md" min="0" max="100" type="number" name="uts" id="uts" placeholder="masukkan nilai"></td>
+			<td><input onkeyup="calculate()" class="w-full px-2 rounded-md" min="0" max="100" type="number" name="uts" id="uts" placeholder="masukkan nilai"></td>
 		</tr>
 		<tr>
 			<td>UAS</td>
 			<td>40%</td>
-			<td><input class="w-full px-2 rounded-md" min="0" max="100" type="number" name="uas" id="uas" placeholder="masukkan nilai"></td>
+			<td><input onkeyup="calculate()" class="w-full px-2 rounded-md" min="0" max="100" type="number" name="uas" id="uas" placeholder="masukkan nilai"></td>
 		</tr>
 		<tr>
 			<td colspan="2">Indeks Prestasi</td>
@@ -59,8 +60,7 @@
 			<td id="nilai-akhir">-</td>
 		</tr>
         <tr>
-            <td colspan="2"><button onclick="reset()" class="w-full transition border-none outline-none hover:bg-gray-500 hover:text-white rounded-md">Reset</button></td>
-            <td><button type="submit" onclick="calculate()" class="w-full transition border-none outline-none hover:bg-gray-500 hover:text-white rounded-md">Update</button></td>
+            <td colspan="3"><button onclick="reset()" class="w-full transition border-none outline-none hover:bg-gray-500 hover:text-white rounded-md">Reset</button></td>
         </tr>
 	</table>
 
@@ -168,7 +168,7 @@
                 ),
 
                 // update table
-                document.getElementById("nilai-akhir").textContent = nilaiAkhir*10/10,
+                document.getElementById("nilai-akhir").textContent = (nilaiAkhir*10/10).toString().slice(0, 5),
                 document.getElementById("indeks-presentasi").textContent = indeksPrestasi,
                 document.getElementById("keterangan").textContent = keterangan
             );
